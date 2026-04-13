@@ -7,7 +7,6 @@ on:
 env:
   DOCKER_HUB_USER: 'ryanocastro'
   APP_NAME: 'quarkus-app'
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
 
