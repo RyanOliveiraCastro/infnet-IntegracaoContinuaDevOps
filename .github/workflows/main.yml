@@ -1,5 +1,4 @@
 name: CI/CD Pipeline - Quarkus App
-
 on:
   push:
     branches: [ "main", "master" ]
