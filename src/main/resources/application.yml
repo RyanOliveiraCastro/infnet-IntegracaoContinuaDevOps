@@ -1,0 +1,16 @@
+quarkus:
+  application:
+    name: ${project.artifactId}
+    version: ${project.version}
+    tags: infnet
+  datasource:
+    db-kind: postgresql
+  hibernate-orm:
+    schema-management:
+      strategy: drop-and-create
+  # Configuração do Prometheus e Metricas da JVM
+  micrometer:
+    export:
+      prometheus:
+        path: /q/metrics
+        default-metrics-tags: "application=${quarkus.application.name}"

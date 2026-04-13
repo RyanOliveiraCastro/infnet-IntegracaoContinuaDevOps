@@ -1,0 +1,32 @@
+# postgres.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: postgres-pod
+  labels:
+    app: postgres
+spec:
+  containers:
+    - name: postgres
+      image: postgres:15-alpine
+      ports:
+        - containerPort: 5432
+      env:
+        - name: POSTGRES_DB
+          value: "db"
+        - name: POSTGRES_USER
+          value: "user"
+        - name: POSTGRES_PASSWORD
+          value: "pass"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-service
+spec:
+  type: ClusterIP
+  selector:
+    app: postgres
+  ports:
+    - port: 5432
+      targetPort: 5432
